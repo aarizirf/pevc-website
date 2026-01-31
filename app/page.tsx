@@ -33,7 +33,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex min-h-screen flex-col">
           {/* Navigation */}
-          <nav className="flex items-center justify-between px-12 py-8 md:px-20 lg:px-32">
+          <nav className="flex items-center justify-between px-12 py-8 md:px-20 lg:px-32 animate-fade-in">
             {/* Logo */}
             <Link href="/" className="text-white font-semibold text-lg tracking-wide">
               Wharton PEVC
@@ -67,11 +67,11 @@ export default function Home() {
 
           {/* Hero Content */}
           <div className="flex flex-1 flex-col justify-end px-12 pb-24 md:px-20 md:pb-32 lg:px-32 lg:pb-40">
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-8">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-8 animate-fade-in-up animate-delay-200">
               Educating Undergraduates in Private Equity & Venture Capital since 2011
             </h1>
 
-            <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed">
+            <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed animate-fade-in-up animate-delay-400">
               The Wharton Undergraduate Private Equity and Venture Capital Club is the premier place for Penn students interested in exploring the buy-side industry.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
         <div className="px-12 md:px-20 lg:px-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left Column - Main Statement */}
-            <div className="flex gap-6">
+            <div className="flex gap-6 animate-fade-in-left animate-delay-200">
               <div className="w-1 bg-blue-900 shrink-0" />
               <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light text-gray-900 leading-tight">
                 Cultivating the next generation of private equity and venture capital leaders.
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Description */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center animate-fade-in-right animate-delay-400">
               <h3 className="text-gray-900 text-lg font-medium mb-4">
                 Who We Are
               </h3>
