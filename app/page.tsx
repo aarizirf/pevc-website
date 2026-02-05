@@ -153,36 +153,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Industry Projects Section */}
-      <section className="bg-[#f5f5f5] py-16 md:py-20 lg:py-24">
-        <div className="px-12 md:px-20 lg:px-32">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-6">
-              Industry Projects
-            </h2>
-            <p className="text-gray-600 text-base leading-relaxed mb-6">
-              Wharton PEVC offers pro-bono valuation services for businesses across the United States, regardless of size or financial profile. Our members bring substantial experience building valuation models at top private equity firms, venture capital firms, hedge funds, and investment banks.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white p-6">
-                <h3 className="text-gray-900 font-medium mb-2">Valuation Services</h3>
-                <p className="text-gray-600 text-sm">Building financial models for business valuations</p>
-              </div>
-              <div className="bg-white p-6">
-                <h3 className="text-gray-900 font-medium mb-2">Growth Acceleration</h3>
-                <p className="text-gray-600 text-sm">Strategic advice to help firms expand promising products</p>
-              </div>
-            </div>
-            <a
-              href="mailto:whartonpevcweb@gmail.com"
-              className="inline-block text-blue-900 text-sm font-medium border-b border-blue-900 pb-1 hover:opacity-70 transition-opacity"
-            >
-              Get in touch →
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Events Section */}
       <section className="bg-white pt-8 md:pt-12 pb-24 md:pb-32 lg:pb-40">
         <div className="px-12 md:px-20 lg:px-32">
