@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 interface Committee {
   id: string;
@@ -10,6 +9,12 @@ interface Committee {
 }
 
 const committees: Committee[] = [
+  {
+    id: "co",
+    title: "Corporate Outreach",
+    description:
+      "Students in this team will develop skills in sourcing and investor relations. CO works to develop relationships between PEVC club members and professionals in the industry. Not only will you increase the club's visibility and learn more about the industry, but you will also build personal connections and will be able to point to tangible experiences.",
+  },
   {
     id: "ia",
     title: "Investment Analysis",
@@ -28,23 +33,17 @@ const committees: Committee[] = [
     description:
       "This GBM team will have a 100% acceptance rate. In this program, members will come to weekly meetings to learn from our board members, alumni and each other about a wide array of topics. Members will have the opportunity to participate in stock pitch competitions and present on a relevant private equity/venture capital topic. Applicants not selected for any committee are welcome to join the Academy.",
   },
-  {
-    id: "co",
-    title: "Corporate Outreach",
-    description:
-      "Students in this team will develop skills in sourcing and investor relations. CO works to develop relationships between PEVC club members and professionals in the industry. Not only will you increase the club's visibility and learn more about the industry, but you will also build personal connections and will be able to point to tangible experiences.",
-  },
 ];
 
 export default function Accordion() {
-  const [openId, setOpenId] = useState<string | null>("ia");
+  const [openId, setOpenId] = useState<string | null>("co");
 
   const togglePanel = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
   return (
-    <section className="bg-white py-24 md:py-32 lg:py-40">
+    <section className="bg-white pt-8 md:pt-12 pb-24 md:pb-32 lg:pb-40">
       <div className="px-12 md:px-20 lg:px-32">
         {/* Section Header */}
         <div className="flex items-center gap-6 mb-16">
@@ -81,15 +80,9 @@ export default function Accordion() {
                 }`}
               >
                 <div className="px-8 md:px-12 pb-10">
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 max-w-3xl">
+                  <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-3xl">
                     {committee.description}
                   </p>
-                  <Link
-                    href="/join"
-                    className="text-gray-900 text-sm font-medium border-b border-gray-400 pb-1 hover:border-gray-900 transition-colors"
-                  >
-                    Learn More
-                  </Link>
                 </div>
               </div>
             </div>

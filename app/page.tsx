@@ -1,20 +1,7 @@
 import Link from "next/link";
 import Accordion from "./components/Accordion";
-
-const sponsors = [
-  "Blackstone",
-  "KKR",
-  "Apollo",
-  "Carlyle",
-  "TPG",
-  "Warburg Pincus",
-  "Advent",
-  "Bain Capital",
-  "Silver Lake",
-  "Vista Equity",
-  "Thoma Bravo",
-  "General Atlantic",
-];
+import SponsorCarousel from "./components/SponsorCarousel";
+import { events, getTypeColor } from "./data/events";
 
 export default function Home() {
   return (
@@ -43,9 +30,6 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
               <Link href="/" className="text-white text-sm hover:opacity-80 transition-opacity">
                 Home
-              </Link>
-              <Link href="/about" className="text-white text-sm hover:opacity-80 transition-opacity">
-                About
               </Link>
               <Link href="/team" className="text-white text-sm hover:opacity-80 transition-opacity">
                 Our Team
@@ -85,7 +69,7 @@ export default function Home() {
             {/* Left Column - Main Statement */}
             <div className="flex gap-6">
               <div className="w-1 bg-blue-900 shrink-0" />
-              <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light text-gray-900 leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 leading-tight">
                 Cultivating the next generation of private equity and venture capital leaders.
               </h2>
             </div>
@@ -95,54 +79,112 @@ export default function Home() {
               <h3 className="text-gray-900 text-lg font-medium mb-4">
                 Who We Are
               </h3>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 PEVC is a thriving organization of bright and passionate individuals. Our mission is to cultivate connections between private market firms and Penn&apos;s students that will ultimately lead to a more professionally prepared and passionate educational community. As a PEVC member, you will acquire and hone vital financial skills, meet and interact with professionals from the industry&apos;s best firms, and work and play in a team with the most driven and interesting students Penn has to offer. We are proud to have led Wharton Council&apos;s &ldquo;Best GBM Program&rdquo; (2023), organized the &ldquo;Best Event&rdquo; (2023), and had the &ldquo;Most Outstanding Board Member&rdquo; for 2 years straight (2024, 2025).
               </p>
-
-              <Link
-                href="/about"
-                className="text-gray-900 text-sm font-medium border-b border-gray-900 pb-1 w-fit hover:opacity-70 transition-opacity"
-              >
-                Our Story
-              </Link>
             </div>
           </div>
         </div>
 
         {/* Sponsor Carousel */}
-        <div className="mt-24 md:mt-32 overflow-hidden">
-          <div className="flex animate-scroll">
-            {[...sponsors, ...sponsors].map((sponsor, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 px-8 md:px-12"
-              >
-                <span className="text-gray-300 text-xl md:text-2xl font-semibold tracking-wide whitespace-nowrap">
-                  {sponsor}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="flex animate-scroll-reverse mt-6">
-            {[...sponsors, ...sponsors].reverse().map((sponsor, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 px-8 md:px-12"
-              >
-                <span className="text-gray-300 text-xl md:text-2xl font-semibold tracking-wide whitespace-nowrap">
-                  {sponsor}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="mt-24 md:mt-32">
+          <SponsorCarousel />
         </div>
       </section>
 
       {/* Committees Section */}
       <Accordion />
 
+      {/* What We Do Section */}
+      <section className="bg-[#f5f5f5] py-16 md:py-20 lg:py-24">
+        <div className="px-12 md:px-20 lg:px-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Image */}
+            <div className="aspect-[3/2] overflow-hidden">
+              <img
+                src="/case-comp.webp"
+                alt="Case Competition"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="lg:pl-8">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+                Case Competitions
+              </h2>
+              <p className="text-gray-600 text-base leading-relaxed mb-4">
+                Wharton PEVC organizes competitions with premier firms for students nationwide. These events let students apply their expertise and engage with industry professionals.
+              </p>
+              <p className="text-gray-600 text-base leading-relaxed">
+                Prior partnerships have included KKR, Silver Lake, Warburg Pincus, and Altamont.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Speakers Section */}
+      <section className="bg-white py-16 md:py-20 lg:py-24">
+        <div className="px-12 md:px-20 lg:px-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Content */}
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+                Industry Speakers
+              </h2>
+              <p className="text-gray-600 text-base leading-relaxed mb-4">
+                We host multiple speaking events featuring seasoned PEVC professionals, often in senior leadership roles.
+              </p>
+              <p className="text-gray-600 text-base leading-relaxed">
+                Past speakers represent firms such as Apollo Global Management, KKR, Goldman Sachs, Moelis, Silver Lake, Warburg Pincus, Blackstone, Insight Partners, Apax Partners, Carlyle and more.
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="order-1 lg:order-2 aspect-[3/2] overflow-hidden">
+              <img
+                src="/industry-speakers.webp"
+                alt="Industry Speaker Event"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Projects Section */}
+      <section className="bg-[#f5f5f5] py-16 md:py-20 lg:py-24">
+        <div className="px-12 md:px-20 lg:px-32">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-6">
+              Industry Projects
+            </h2>
+            <p className="text-gray-600 text-base leading-relaxed mb-6">
+              Wharton PEVC offers pro-bono valuation services for businesses across the United States, regardless of size or financial profile. Our members bring substantial experience building valuation models at top private equity firms, venture capital firms, hedge funds, and investment banks.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white p-6">
+                <h3 className="text-gray-900 font-medium mb-2">Valuation Services</h3>
+                <p className="text-gray-600 text-sm">Building financial models for business valuations</p>
+              </div>
+              <div className="bg-white p-6">
+                <h3 className="text-gray-900 font-medium mb-2">Growth Acceleration</h3>
+                <p className="text-gray-600 text-sm">Strategic advice to help firms expand promising products</p>
+              </div>
+            </div>
+            <a
+              href="mailto:whartonpevcweb@gmail.com"
+              className="inline-block text-blue-900 text-sm font-medium border-b border-blue-900 pb-1 hover:opacity-70 transition-opacity"
+            >
+              Get in touch →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Events Section */}
-      <section className="bg-white py-24 md:py-32 lg:py-40">
+      <section className="bg-white pt-8 md:pt-12 pb-24 md:pb-32 lg:pb-40">
         <div className="px-12 md:px-20 lg:px-32">
           {/* Section Header */}
           <div className="flex items-center justify-between mb-16">
@@ -162,64 +204,25 @@ export default function Home() {
 
           {/* Events Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Event 1 - James Gorman */}
-            <Link href="/events" className="group">
-              <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden mb-6">
-                <img
-                  src="/event-1.png"
-                  alt="James Gorman Speaker Event"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium px-3 py-1 bg-blue-100 text-blue-900 rounded">
-                  Speaker Event
-                </span>
-                <span className="text-sm text-gray-500">February 18, 2025</span>
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
-                James Gorman: Chairman of Walt Disney Co. &amp; Former CEO of Morgan Stanley
-              </h3>
-            </Link>
-
-            {/* Event 2 - Slava Rubin */}
-            <Link href="/events" className="group">
-              <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden mb-6">
-                <img
-                  src="/event-2.png"
-                  alt="Slava Rubin Speaker Event"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium px-3 py-1 bg-blue-100 text-blue-900 rounded">
-                  Speaker Event
-                </span>
-                <span className="text-sm text-gray-500">November 20, 2024</span>
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
-                Slava Rubin: Co-Founder of Indiegogo &amp; Fortune 40 Under 40
-              </h3>
-            </Link>
-
-            {/* Event 3 - Networking */}
-            <Link href="/events" className="group">
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg overflow-hidden mb-6 flex items-center justify-center">
-                <div className="text-center text-white p-6">
-                  <div className="text-4xl font-light mb-2">PEVC</div>
-                  <div className="text-sm tracking-widest">NETWORKING NIGHT</div>
+            {events.slice(0, 3).map((event) => (
+              <a
+                key={event.id}
+                href={event.link}
+                target={event.link.startsWith("http") ? "_blank" : undefined}
+                rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group block"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`text-xs font-medium px-3 py-1 rounded ${getTypeColor(event.type)}`}>
+                    {event.type}
+                  </span>
+                  <span className="text-sm text-gray-500">{event.date}</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium px-3 py-1 bg-green-100 text-green-900 rounded">
-                  Networking
-                </span>
-                <span className="text-sm text-gray-500">March 2025</span>
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
-                Spring Networking Night with PE &amp; VC Professionals
-              </h3>
-            </Link>
+                <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
+                  {event.title}
+                </h3>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -235,15 +238,10 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* About */}
+            {/* Club */}
             <div>
-              <h4 className="text-gray-400 text-sm mb-4">About</h4>
+              <h4 className="text-gray-400 text-sm mb-4">Club</h4>
               <ul className="space-y-3">
-                <li>
-                  <Link href="/about" className="text-white text-sm hover:text-gray-300 transition-colors">
-                    Our Story
-                  </Link>
-                </li>
                 <li>
                   <Link href="/team" className="text-white text-sm hover:text-gray-300 transition-colors">
                     Our Team
@@ -364,6 +362,20 @@ export default function Home() {
               </a>
             </div>
           </div>
+
+          {/* Equal Opportunity Statement */}
+          <p className="mt-8 text-gray-500 text-xs leading-relaxed text-center">
+            As a Wharton Council-recognized student organization, Wharton PEVC adheres to the{" "}
+            <a
+              href="https://almanac.upenn.edu/articles/of-record-university-of-pennsylvania-policy-on-equal-opportunity-and-equal-opportunity-and-nondiscrimination-statement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-300 transition-colors"
+            >
+              University of Pennsylvania Policy on Equal Opportunity
+            </a>
+            . All Penn undergraduates are welcome to sign up to participate in our general body membership (GBM) events and programs.
+          </p>
         </div>
       </footer>
     </main>
