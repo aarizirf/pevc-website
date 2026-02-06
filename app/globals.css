@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+/* Elegant page-intro fade-in: slow, easy to follow */
+@keyframes page-intro-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-page-intro {
+  opacity: 0;
+  animation: page-intro-fade-in 1.4s ease-out forwards;
+}
+
+.animate-page-intro-delay-1 {
+  opacity: 0;
+  animation: page-intro-fade-in 1.4s ease-out 0.18s forwards;
+}
+
+.animate-page-intro-delay-2 {
+  opacity: 0;
+  animation: page-intro-fade-in 1.4s ease-out 0.36s forwards;
+}
+
+.animate-page-intro-delay-3 {
+  opacity: 0;
+  animation: page-intro-fade-in 1.4s ease-out 0.54s forwards;
+}
+
+.animate-page-intro-delay-4 {
+  opacity: 0;
+  animation: page-intro-fade-in 1.4s ease-out 0.72s forwards;
+}

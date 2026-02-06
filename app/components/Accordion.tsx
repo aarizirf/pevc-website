@@ -43,11 +43,11 @@ export default function Accordion() {
   };
 
   return (
-    <section className="bg-white pt-8 md:pt-12 pb-24 md:pb-32 lg:pb-40">
+    <section className="bg-white pt-4 md:pt-6 pb-24 md:pb-32 lg:pb-40">
       <div className="px-12 md:px-20 lg:px-32">
         {/* Section Header */}
         <div className="flex items-center gap-6 mb-16">
-          <div className="w-16 h-px bg-gray-300" />
+          <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900">
             Our Committees
           </h2>

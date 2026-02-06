@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { events, getTypeColor } from "../data/events";
-import PastEventsCarousel from "../components/PastEventsCarousel";
-import HighlightedEvents from "../components/HighlightedEvents";
 
-export default function Events() {
+const LISTSERV_LINK = "https://lists.wharton.upenn.edu"; // Update with your listserv signup URL
+
+export default function JoinUsPage() {
   return (
     <main className="w-full">
       {/* Navigation */}
@@ -22,88 +21,117 @@ export default function Events() {
           <Link href="/sponsors" className="text-gray-600 text-sm hover:text-gray-900 transition-colors">
             Sponsors
           </Link>
-          <Link href="/events" className="text-gray-900 text-sm font-medium">
+          <Link href="/events" className="text-gray-600 text-sm hover:text-gray-900 transition-colors">
             Events
           </Link>
           <Link href="/projects" className="text-gray-600 text-sm hover:text-gray-900 transition-colors">
             Industry Projects
           </Link>
-          <Link href="/join" className="text-gray-600 text-sm hover:text-gray-900 transition-colors">
+          <Link href="/join" className="text-gray-900 text-sm font-medium">
             Join Us
           </Link>
         </div>
       </nav>
 
-      {/* Upcoming Events Section */}
-      <section className="bg-white py-12 md:py-16 lg:py-20">
+      {/* Hero Section */}
+      <section className="bg-white pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="px-12 md:px-20 lg:px-32">
-          {/* Section Header */}
-          <div className="flex items-center gap-6 mb-16">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0 animate-page-intro" />
-            <h1 className="text-3xl md:text-4xl font-light text-gray-900 animate-page-intro-delay-1">
-              Upcoming Events
-            </h1>
+          <div className="flex items-center gap-6 mb-6">
+            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
+            <span className="text-sm text-gray-500 uppercase tracking-wider">Get Involved</span>
           </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+            Join Us
+          </h1>
+          <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
+            Become part of the premier private equity and venture capital community at Wharton. 
+            Explore our committees, join our listserv, and connect with industry professionals.
+          </p>
+        </div>
+      </section>
 
-          {/* Events Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-page-intro-delay-2">
-            {events.map((event) => (
-              <a
-                key={event.id}
-                href={event.link}
-                target={event.link.startsWith("http") ? "_blank" : undefined}
-                rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group block"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className={`text-xs font-medium px-3 py-1 rounded ${getTypeColor(event.type)}`}>
-                    {event.type}
-                  </span>
-                  <span className="text-sm text-gray-500">{event.date}</span>
-                </div>
-                <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
-                  {event.title}
-                </h3>
-              </a>
-            ))}
+      {/* Committee Applications Section */}
+      <section className="bg-white py-12 md:py-16">
+        <div className="px-12 md:px-20 lg:px-32">
+          <div className="max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-6">
+              Committee Applications
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              Fall 2024 applications will open at the beginning of September. Interested students can join 
+              the listserv to stay updated on timelines and application deadlines.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Highlighted Events Section */}
-      <section className="bg-[#fafafa] py-12 md:py-16 lg:py-20">
+      {/* Listserv Section */}
+      <section className="bg-gray-50 py-12 md:py-16">
         <div className="px-12 md:px-20 lg:px-32">
-          <div className="flex items-center gap-6 mb-12">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900">
-              Highlighted Events
+          <div className="max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-6">
+              Join Our Listserv
             </h2>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
+              Stay connected with Wharton PEVC through our biweekly newsletters. Receive information about:
+            </p>
+            <ul className="list-disc list-inside text-gray-600 text-base md:text-lg leading-relaxed mb-8 space-y-2 ml-4">
+              <li>Upcoming speakers and events</li>
+              <li>Job opportunities in the PEVC space</li>
+              <li>Club announcements and updates</li>
+              <li>Industry insights and resources</li>
+            </ul>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+              Sign up with your name, email, and graduation year to receive our biweekly newsletters 
+              and stay informed about all club activities and opportunities.
+            </p>
+            <a
+              href={LISTSERV_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Join the Listserv
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
-          <HighlightedEvents />
         </div>
       </section>
 
-      {/* Past Events Section */}
-      <section className="bg-[#f5f5f5] py-12 md:py-16">
-        <div className="px-12 md:px-20 lg:px-32 mb-16">
-          <div className="flex items-center gap-6">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900">
-              Past Events
-            </h2>
-          </div>
+      {/* Contact Section */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="px-12 md:px-20 lg:px-32 text-center">
+          <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+            Have Questions?
+          </h2>
+          <p className="text-gray-600 text-base max-w-xl mx-auto mb-8">
+            For inquiries about committee applications, the listserv, or general club information, 
+            we&apos;d love to hear from you.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition-colors"
+          >
+            Contact Us
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
-        <PastEventsCarousel />
       </section>
 
       {/* Footer */}
       <footer className="bg-black text-white py-12 md:py-16">
         <div className="px-12 md:px-20 lg:px-32">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            {/* Logo */}
             <Link href="/">
               <img src="/wharton-logo.png" alt="Wharton PEVC" className="h-10" />
             </Link>
 
+            {/* Nav Links */}
             <div className="flex flex-wrap items-center gap-6 lg:gap-8">
               <Link href="/" className="text-gray-300 text-sm hover:text-white transition-colors">
                 Home
@@ -125,6 +153,7 @@ export default function Events() {
               </Link>
             </div>
 
+            {/* Connect */}
             <div className="flex items-center gap-5">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -139,6 +168,7 @@ export default function Events() {
             </div>
           </div>
 
+          {/* Bottom Row */}
           <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
               © 2025 <span className="text-gray-400">Wharton PEVC</span> All Rights Reserved.

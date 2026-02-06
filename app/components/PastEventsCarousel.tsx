@@ -3,9 +3,15 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
-const row1Images = Array.from({ length: 17 }, (_, i) => `/events/event-${String(i + 1).padStart(2, "0")}.webp`);
-const row2Images = Array.from({ length: 17 }, (_, i) => `/events/event-${String(i + 18).padStart(2, "0")}.webp`);
-const row3Images = Array.from({ length: 16 }, (_, i) => `/events/event-${String(i + 35).padStart(2, "0")}.webp`);
+const allImages = [
+  11, 12, 13, 14, 15, 16, 23, 24, 25, 26,
+  27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+  37, 38, 39, 40, 41, 43, 44, 45, 46, 47, 50,
+].map((n) => `/events/event-${String(n).padStart(2, "0")}.webp`);
+
+const row1Images = allImages.slice(0, 10);
+const row2Images = allImages.slice(10, 21);
+const row3Images = allImages.slice(21);
 
 function CarouselRow({ images, reverse = false }: { images: string[]; reverse?: boolean }) {
   const [emblaRef] = useEmblaCarousel(
@@ -16,7 +22,7 @@ function CarouselRow({ images, reverse = false }: { images: string[]; reverse?: 
     },
     [
       AutoScroll({
-        speed: reverse ? -0.15 : 0.15,
+        speed: reverse ? -0.05 : 0.05,
         stopOnInteraction: false,
         stopOnMouseEnter: false,
       }),
@@ -34,7 +40,7 @@ function CarouselRow({ images, reverse = false }: { images: string[]; reverse?: 
             <img
               src={src}
               alt={`Past event ${index + 1}`}
-              className="h-48 md:h-56 w-auto object-cover"
+              className="h-48 md:h-56 w-auto object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
         ))}
