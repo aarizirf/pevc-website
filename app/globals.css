@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Heading font — change --font-heading in layout.tsx to swap */
+h1, h2 {
+  font-family: var(--font-heading), sans-serif;
+}
+
 /* Elegant page-intro fade-in: slow, easy to follow */
 @keyframes page-intro-fade-in {
   from {
@@ -33,4 +38,18 @@
 .animate-page-intro-delay-4 {
   opacity: 0;
   animation: page-intro-fade-in 1.4s ease-out 0.72s forwards;
+}
+
+/* Home intro overlay swipe-up */
+@keyframes intro-swipe-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-intro-overlay {
+  animation: intro-swipe-up 0.8s ease-in 1s forwards;
 }

@@ -44,11 +44,11 @@ export default function Accordion() {
 
   return (
     <section className="bg-white pt-4 md:pt-6 pb-24 md:pb-32 lg:pb-40">
-      <div className="px-12 md:px-20 lg:px-32">
+      <div className="px-6 md:px-12 lg:px-20 xl:px-32">
         {/* Section Header */}
-        <div className="flex items-center gap-6 mb-16">
+        <div className="flex items-center gap-6 mb-10 md:mb-16">
           <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-light text-gray-900">
             Our Committees
           </h2>
         </div>
@@ -62,12 +62,12 @@ export default function Accordion() {
             >
               <button
                 onClick={() => togglePanel(committee.id)}
-                className="w-full px-8 md:px-12 py-8 flex items-center justify-between text-left"
+                className="w-full px-4 md:px-8 lg:px-12 py-8 flex items-center justify-between text-left"
               >
-                <h3 className="text-2xl md:text-3xl font-light text-gray-900">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-light text-gray-900">
                   {committee.title}
                 </h3>
-                <span className="text-3xl text-gray-400 ml-4 font-light">
+                <span className="text-2xl md:text-3xl text-gray-400 ml-4 font-light">
                   {openId === committee.id ? "×" : "+"}
                 </span>
               </button>
@@ -75,11 +75,11 @@ export default function Accordion() {
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   openId === committee.id
-                    ? "max-h-[500px] opacity-100"
+                    ? "max-h-[600px] opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-8 md:px-12 pb-10">
+                <div className="px-4 md:px-8 lg:px-12 pb-10">
                   <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-3xl">
                     {committee.description}
                   </p>

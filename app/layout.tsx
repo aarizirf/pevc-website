@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Red_Rose } from "next/font/google";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-hanken",
+});
+
+const redRose = Red_Rose({
+  subsets: ["latin"],
+  variable: "--font-heading",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={hankenGrotesk.className}>{children}</body>
+      <body className={`${hankenGrotesk.className} ${redRose.variable}`}>{children}</body>
     </html>
   );
 }

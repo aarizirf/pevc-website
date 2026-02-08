@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface HighlightedEvent {
   name: string;
@@ -57,7 +58,7 @@ function EventBlock({ event }: { event: HighlightedEvent }) {
   const showImages = !event.videoOnly && event.images.length > 0;
 
   return (
-    <article className="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-10 py-10 md:py-12 border-b border-gray-200 last:border-b-0">
+    <article className="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-10">
       {/* Media */}
       <div className="relative aspect-[16/10] md:aspect-[4/3] md:col-span-5 bg-gray-100 overflow-hidden">
         {showVideo && event.youtubeId ? (
@@ -81,7 +82,7 @@ function EventBlock({ event }: { event: HighlightedEvent }) {
                   onClick={() =>
                     setImgIdx((i) => (i - 1 + event.images.length) % event.images.length)
                   }
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 md:w-8 md:h-8 bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
                   aria-label="Previous image"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -92,7 +93,7 @@ function EventBlock({ event }: { event: HighlightedEvent }) {
                   onClick={() =>
                     setImgIdx((i) => (i + 1) % event.images.length)
                   }
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 md:w-8 md:h-8 bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
                   aria-label="Next image"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -139,7 +140,7 @@ function EventBlock({ event }: { event: HighlightedEvent }) {
         <p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-2">
           {event.title}
         </p>
-        <h3 className="text-2xl md:text-3xl font-light text-gray-900 tracking-tight">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-gray-900 tracking-tight">
           {event.name}
         </h3>
         <p className="text-gray-500 mt-2 leading-relaxed">{event.description}</p>
@@ -149,11 +150,84 @@ function EventBlock({ event }: { event: HighlightedEvent }) {
 }
 
 export default function HighlightedEvents() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const stopAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+    }
+  }, []);
+
+  const scrollPrev = useCallback(() => {
+    stopAutoplay();
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi, stopAutoplay]);
+
+  const scrollNext = useCallback(() => {
+    stopAutoplay();
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi, stopAutoplay]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    autoplayRef.current = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 3000);
+    return () => stopAutoplay();
+  }, [emblaApi, stopAutoplay]);
+
   return (
-    <div>
-      {highlightedEvents.map((event) => (
-        <EventBlock key={event.name} event={event} />
-      ))}
+    <div className="relative" onClickCapture={stopAutoplay}>
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {highlightedEvents.map((event) => (
+            <div key={event.name} className="flex-[0_0_100%] min-w-0 pr-4 md:pr-6">
+              <EventBlock event={event} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex items-center justify-center gap-3 mt-8">
+        <button
+          onClick={scrollPrev}
+          disabled={!canScrollPrev}
+          className="w-11 h-11 md:w-10 md:h-10 flex items-center justify-center border border-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-gray-300 disabled:hover:text-gray-900"
+          aria-label="Previous speaker"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={scrollNext}
+          disabled={!canScrollNext}
+          className="w-11 h-11 md:w-10 md:h-10 flex items-center justify-center border border-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-gray-300 disabled:hover:text-gray-900"
+          aria-label="Next speaker"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
