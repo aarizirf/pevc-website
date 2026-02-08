@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Red_Rose } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -37,7 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hankenGrotesk.className} ${redRose.variable}`}>{children}</body>
+      <body className={`${hankenGrotesk.className} ${redRose.variable}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
