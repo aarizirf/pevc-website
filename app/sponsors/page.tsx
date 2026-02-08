@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Sponsors",
+  description: "Partners and case competition sponsors of Wharton Undergraduate PEVC.",
+};
 
 interface Sponsor {
   name: string;

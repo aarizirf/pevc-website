@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { events, getTypeColor } from "../data/events";
 import PastEventsCarousel from "../components/PastEventsCarousel";
 import HighlightedEvents from "../components/HighlightedEvents";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Events",
+  description: "Upcoming and past Wharton PEVC events, treks, and speaker series in private equity and venture capital.",
+};
 
 export default function Events() {
   return (

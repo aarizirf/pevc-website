@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Accordion from "./components/Accordion";
 import SponsorCarousel from "./components/SponsorCarousel";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { events, getTypeColor } from "./data/events";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Educating Undergraduates in Private Equity & Venture Capital since 2011",
+};
 
 export default function Home() {
   return (

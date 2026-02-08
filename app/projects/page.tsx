@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ClientReviewsCarousel from "@/app/components/ClientReviewsCarousel";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Valuation services and growth acceleration for local businesses. Pro bono services from Wharton PEVC members.",
+};
 
 export default function ProjectsPage() {
   return (

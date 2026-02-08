@@ -13,8 +13,21 @@ const redRose = Red_Rose({
 });
 
 export const metadata: Metadata = {
-  title: "Wharton PEVC",
+  metadataBase: new URL("https://whartonugpevc.com"),
+  title: {
+    default: "Wharton PEVC",
+    template: "%s | Wharton PEVC",
+  },
   description: "Educating Undergraduates in Private Equity & Venture Capital since 2011",
+  openGraph: {
+    title: "Wharton PEVC",
+    description: "Educating Undergraduates in Private Equity & Venture Capital since 2011",
+    type: "website",
+    images: [{ url: "/wharton-logo.png", width: 512, height: 512 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
