@@ -84,7 +84,7 @@ const formerTeams: FormerTeam[] = [
   {
     year: "2024-2025",
     members:
-      "Co-Presidents: Kevin Zhang & Suraj Sait\nCo-VP of IA: Otakar Korinek & Kah Kheng Ghan\nCo-VP of CO: Madeleine Yeh & Muhammad Vakil\nCo-VP of IP: Adrian Melendez & Oliver Dalmi\nVP of Competitions: Mikail Jaffer\nCo-VP of Academy: Jeffrey Zhang & Rohan Srivastava\nVP of Marketing: Araash Ahuja",
+      "Co-Presidents: Kevin Zhang & Suraj Sait\nCo-VP of IA: Otakar Korinek & Kah Kheng Gan\nCo-VP of CO: Madeleine Yeh & Muhammad Vakil\nCo-VP of IP: Adrian Melendez & Oliver Dalmi\nVP of Competitions: Mikail Jaffer\nCo-VP of Academy: Jeffrey Zhang & Rohan Srivastava\nVP of Marketing: Araash Ahuja",
   },
   {
     year: "2023-2024",
