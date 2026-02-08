@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Smooth scroll — foundation for scroll storytelling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Heading font — change --font-heading in layout.tsx to swap */
 h1, h2 {
   font-family: var(--font-heading), sans-serif;

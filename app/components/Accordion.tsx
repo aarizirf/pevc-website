@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 interface Committee {
   id: string;
@@ -46,18 +47,22 @@ export default function Accordion() {
     <section className="bg-white pt-4 md:pt-6 pb-24 md:pb-32 lg:pb-40">
       <div className="px-6 md:px-12 lg:px-20 xl:px-32">
         {/* Section Header */}
-        <div className="flex items-center gap-6 mb-10 md:mb-16">
-          <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-          <h2 className="text-2xl md:text-3xl lg:text-5xl font-light text-gray-900">
-            Our Committees
-          </h2>
-        </div>
+        <ScrollReveal variant="fade-up">
+          <div className="flex items-center gap-6 mb-10 md:mb-16">
+            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-light text-gray-900">
+              Our Committees
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* Accordion Cards */}
         <div className="flex flex-col gap-4">
-          {committees.map((committee) => (
-            <div
+          {committees.map((committee, i) => (
+            <ScrollReveal
               key={committee.id}
+              variant="fade-up"
+              delay={i * 0.08}
               className="bg-gray-50 rounded-lg overflow-hidden"
             >
               <button
@@ -85,7 +90,7 @@ export default function Accordion() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
