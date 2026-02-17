@@ -8,13 +8,6 @@ export interface Event {
 
 export const events: Event[] = [
   {
-    id: "accel-kkr-info-session",
-    title: "Accel-KKR x Wharton PEVC Info Session",
-    date: "February 11, 2026",
-    type: "Info Session",
-    link: "https://groups.wharton.upenn.edu/pevc/rsvp_boot?id=123645",
-  },
-  {
     id: "blair-effron-fireside-chat",
     title: "Fireside Chat with Blair Effron: Founder of Centerview Partners",
     date: "March 26, 2026",
