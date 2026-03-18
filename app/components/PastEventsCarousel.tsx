@@ -3,15 +3,30 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
-const allImages = [
+const row1Images = [
   11, 12, 13, 14, 15, 16, 23, 24, 25, 26,
-  27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
-  37, 38, 39, 40, 41, 43, 44, 45, 46, 47, 50,
-].map((n) => `/events/event-${String(n).padStart(2, "0")}.webp`);
+].map((n) => `/events/event-${String(n).padStart(2, "0")}.webp`).concat([
+  "/events/ashmeet_sidana.png",
+  "/events/barry_givens.png",
+  "/events/chad_hutchinson.png",
+]);
 
-const row1Images = allImages.slice(0, 10);
-const row2Images = allImages.slice(10, 21);
-const row3Images = allImages.slice(21);
+const row2Images = [
+  27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+].map((n) => `/events/event-${String(n).padStart(2, "0")}.webp`).concat([
+  "/events/darren_cohen.png",
+  "/events/derek_ho.png",
+  "/events/matt_jacobson.png",
+  "/events/michael_barton.png",
+]);
+
+const row3Images = [
+  38, 39, 40, 41, 43, 44, 45, 46, 47, 50,
+].map((n) => `/events/event-${String(n).padStart(2, "0")}.webp`).concat([
+  "/events/oren_zeev.png",
+  "/events/phillipe_laffont.png",
+  "/events/vik_malhotra.png",
+]);
 
 function CarouselRow({ images, reverse = false }: { images: string[]; reverse?: boolean }) {
   const [emblaRef] = useEmblaCarousel(

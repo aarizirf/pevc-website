@@ -47,6 +47,16 @@ export default function Events() {
                 <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
                   {event.title}
                 </h3>
+                {(event.time || event.location) && (
+                  <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                    {event.time && (
+                      <span className="text-sm text-gray-500">{event.time}</span>
+                    )}
+                    {event.location && (
+                      <span className="text-sm text-gray-500">{event.location}</span>
+                    )}
+                  </div>
+                )}
               </a>
             ))}
           </div>

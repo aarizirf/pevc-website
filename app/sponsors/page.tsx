@@ -49,6 +49,20 @@ const caseCompetitionPartners: Sponsor[] = [
 
 const platinumSponsors: Sponsor[] = [
   {
+    name: "KKR",
+    logo: "/sponsors/kkr.png",
+    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
+    sector: "Private Equity",
+    website: "https://www.kkr.com",
+  },
+  {
+    name: "Warburg Pincus",
+    logo: "/sponsors/warburg-pincus.svg.webp",
+    description: "Global private equity firm based in New York managing over $85 billion in assets, with a growth-oriented investment philosophy across 21 funds and 1,000+ investments.",
+    sector: "Private Equity",
+    website: "https://www.warburgpincus.com",
+  },
+  {
     name: "Insight Partners",
     logo: "/sponsors/insight-partners.png",
     description: "Global software investor and operational partner, investing in high-growth technology, software, and internet businesses across all stages from Series A through late-stage growth.",
