@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function Events() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const upcomingEvents = events.filter((e) => new Date(e.date) >= today);
+
   return (
     <main className="w-full">
       {/* Navigation */}
@@ -30,7 +34,7 @@ export default function Events() {
 
           {/* Events Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-page-intro">
-            {events.map((event) => (
+            {upcomingEvents.map((event) => (
               <a
                 key={event.id}
                 href={event.link}
