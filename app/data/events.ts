@@ -43,6 +43,40 @@ export const events: Event[] = [
     type: "Networking",
     link: "#",
   },
+  {
+    id: "american-securities-networking-session",
+    title: "American Securities Networking Session",
+    date: "April 7, 2026",
+    time: "6–7pm",
+    location: "JMHH 345",
+    type: "Networking",
+    link: "#",
+  },
+  {
+    id: "atlas-partners-info-session",
+    title: "Atlas Partners Info Session",
+    date: "April 15, 2026",
+    time: "6–7pm",
+    location: "JMHH 245",
+    type: "Info Session",
+    link: "#",
+  },
+  {
+    id: "silver-lake-info-session",
+    title: "Silver Lake Info Session",
+    date: "April 16, 2026",
+    time: "7–8pm",
+    type: "Info Session",
+    link: "#",
+  },
+  {
+    id: "silver-lake-competition",
+    title: "Silver Lake Competition",
+    date: "April 17, 2026",
+    time: "10–11am",
+    type: "Case Competition",
+    link: "#",
+  },
 ];
 
 export const getTypeColor = (type: Event["type"]) => {

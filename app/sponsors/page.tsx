@@ -18,6 +18,13 @@ interface Sponsor {
 
 const caseCompetitionPartners: Sponsor[] = [
   {
+    name: "KKR",
+    logo: "/sponsors/kkr.png",
+    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
+    sector: "Private Equity",
+    website: "https://www.kkr.com",
+  },
+  {
     name: "Silver Lake",
     logo: "/sponsors/silver-lake.png",
     description: "Global private equity firm focused on investments in technology, technology-enabled and related industries, headquartered in Silicon Valley with offices in New York, London, and Hong Kong.",
@@ -31,51 +38,9 @@ const caseCompetitionPartners: Sponsor[] = [
     sector: "Private Equity",
     website: "https://www.warburgpincus.com",
   },
-  {
-    name: "Altamont Capital Partners",
-    logo: "/sponsors/altamont.jpg",
-    description: "Private equity firm with $4.3 billion under management specializing in middle-market control investments across consumer, industrial, and financial services sectors.",
-    sector: "Private Equity",
-    website: "https://www.altamontcapital.com",
-  },
-  {
-    name: "KKR",
-    logo: "/sponsors/kkr.png",
-    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
-    sector: "Private Equity",
-    website: "https://www.kkr.com",
-  },
 ];
 
 const platinumSponsors: Sponsor[] = [
-  {
-    name: "KKR",
-    logo: "/sponsors/kkr.png",
-    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
-    sector: "Private Equity",
-    website: "https://www.kkr.com",
-  },
-  {
-    name: "Warburg Pincus",
-    logo: "/sponsors/warburg-pincus.svg.webp",
-    description: "Global private equity firm based in New York managing over $85 billion in assets, with a growth-oriented investment philosophy across 21 funds and 1,000+ investments.",
-    sector: "Private Equity",
-    website: "https://www.warburgpincus.com",
-  },
-  {
-    name: "Insight Partners",
-    logo: "/sponsors/insight-partners.png",
-    description: "Global software investor and operational partner, investing in high-growth technology, software, and internet businesses across all stages from Series A through late-stage growth.",
-    sector: "Venture Capital",
-    website: "https://www.insightpartners.com",
-  },
-  {
-    name: "Apax Partners",
-    logo: "/sponsors/apax.png",
-    description: "Global private equity advisory firm with over 50 years of investing experience, focusing on tech & telco, services, healthcare, and consumer sectors.",
-    sector: "Private Equity",
-    website: "https://www.apax.com",
-  },
   {
     name: "American Securities",
     logo: "/sponsors/american-securities.png",
@@ -90,22 +55,36 @@ const platinumSponsors: Sponsor[] = [
     sector: "Technology",
     website: "https://www.grata.com",
   },
+  {
+    name: "KKR",
+    logo: "/sponsors/kkr.png",
+    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
+    sector: "Private Equity",
+    website: "https://www.kkr.com",
+  },
+  {
+    name: "Warburg Pincus",
+    logo: "/sponsors/warburg-pincus.svg.webp",
+    description: "Global private equity firm based in New York managing over $85 billion in assets, with a growth-oriented investment philosophy across 21 funds and 1,000+ investments.",
+    sector: "Private Equity",
+    website: "https://www.warburgpincus.com",
+  },
 ];
 
 const pastSponsors: Sponsor[] = [
   {
-    name: "LLR Partners",
-    logo: "/sponsors/llr-partners.webp",
-    description: "Private equity firm investing in education, fintech, healthcare, industrial tech, software, and security sectors, partnering with founders to accelerate growth.",
+    name: "Altamont Capital Partners",
+    logo: "/sponsors/altamont.jpg",
+    description: "Private equity firm with $4.3 billion under management specializing in middle-market control investments across consumer, industrial, and financial services sectors.",
     sector: "Private Equity",
-    website: "https://www.llrpartners.com",
+    website: "https://www.altamontcapital.com",
   },
   {
-    name: "General Atlantic",
-    logo: "/sponsors/general-atlantic.jpg",
-    description: "Leading global growth equity firm providing capital and strategic support for growth companies across technology, consumer, financial services, and healthcare.",
-    sector: "Growth Equity",
-    website: "https://www.generalatlantic.com",
+    name: "Apax Partners",
+    logo: "/sponsors/apax.png",
+    description: "Global private equity advisory firm with over 50 years of investing experience, focusing on tech & telco, services, healthcare, and consumer sectors.",
+    sector: "Private Equity",
+    website: "https://www.apax.com",
   },
   {
     name: "Ares Capital Corporation",
@@ -115,11 +94,32 @@ const pastSponsors: Sponsor[] = [
     website: "https://www.arescapitalcorp.com",
   },
   {
+    name: "General Atlantic",
+    logo: "/sponsors/general-atlantic.jpg",
+    description: "Leading global growth equity firm providing capital and strategic support for growth companies across technology, consumer, financial services, and healthcare.",
+    sector: "Growth Equity",
+    website: "https://www.generalatlantic.com",
+  },
+  {
     name: "GTCR",
     logo: "/sponsors/gtcr.jpg",
     description: "Chicago-based private equity firm pioneering The Leaders Strategy, focusing on buyouts, recapitalizations, and build-ups in financial services, healthcare, and technology.",
     sector: "Private Equity",
     website: "https://www.gtcr.com",
+  },
+  {
+    name: "Insight Partners",
+    logo: "/sponsors/insight-partners.png",
+    description: "Global software investor and operational partner, investing in high-growth technology, software, and internet businesses across all stages from Series A through late-stage growth.",
+    sector: "Venture Capital",
+    website: "https://www.insightpartners.com",
+  },
+  {
+    name: "LLR Partners",
+    logo: "/sponsors/llr-partners.webp",
+    description: "Private equity firm investing in education, fintech, healthcare, industrial tech, software, and security sectors, partnering with founders to accelerate growth.",
+    sector: "Private Equity",
+    website: "https://www.llrpartners.com",
   },
 ];
 
@@ -241,7 +241,7 @@ export default function SponsorsPage() {
       <section className="bg-white py-12 md:py-16">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32">
           <div className="animate-page-intro-delay-4">
-            <SponsorSection title="Platinum Sponsors" sponsors={platinumSponsors} borderAccent="border-[#228B22]" />
+            <SponsorSection title="Sponsors" sponsors={platinumSponsors} />
           </div>
           <SponsorSection title="Case Competition Partners" sponsors={caseCompetitionPartners} />
           <SponsorSection title="Past Sponsors" sponsors={pastSponsors} borderAccent="border-gray-200" />
