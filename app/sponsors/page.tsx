@@ -63,6 +63,13 @@ const platinumSponsors: Sponsor[] = [
     website: "https://www.kkr.com",
   },
   {
+    name: "OceanSound Partners",
+    logo: "/sponsors/oceansound-partners.svg",
+    description: "New York-based private equity firm with $4.5 billion AUM specializing in technology and technology-enabled services companies serving government and enterprise end-markets, including aerospace, defense, and federal government sectors.",
+    sector: "Private Equity",
+    website: "https://oceansoundpartners.com",
+  },
+  {
     name: "Warburg Pincus",
     logo: "/sponsors/warburg-pincus.svg.webp",
     description: "Global private equity firm based in New York managing over $85 billion in assets, with a growth-oriented investment philosophy across 21 funds and 1,000+ investments.",
