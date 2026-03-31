@@ -65,7 +65,7 @@ const platinumSponsors: Sponsor[] = [
   {
     name: "OceanSound Partners",
     logo: "/sponsors/oceansound-partners.svg",
-    description: "New York-based private equity firm with $4.5 billion AUM specializing in technology and technology-enabled services companies serving government and enterprise end-markets, including aerospace, defense, and federal government sectors.",
+    description: "New York-based private equity firm with $4.5 billion AUM focused on technology and technology-enabled services companies serving government and enterprise end-markets.",
     sector: "Private Equity",
     website: "https://oceansoundpartners.com",
   },
