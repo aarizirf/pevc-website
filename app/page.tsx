@@ -66,52 +66,53 @@ export default function Home() {
       {/* What We Do — sticky scroll narrative with parallax images */}
       <WhatWeDoSection />
 
-      {/* Events Section — staggered card reveals */}
-      <section className="bg-white pt-20 md:pt-28 lg:pt-36 pb-24 md:pb-32 lg:pb-40">
-        <div className="px-6 md:px-12 lg:px-20 xl:px-32">
-          {/* Section Header */}
-          <ScrollReveal variant="fade-up">
-            <div className="flex items-center justify-between mb-8 md:mb-16">
-              <div className="flex items-center gap-6">
-                <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-                  Upcoming Events
-                </h2>
-              </div>
-              <Link
-                href="/events"
-                className="text-gray-900 text-sm font-medium border-b border-gray-900 pb-1 hover:opacity-70 transition-opacity"
-              >
-                View All
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          {/* Events Grid — staggered card reveals */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.slice(0, 3).map((event, i) => (
-              <ScrollReveal key={event.id} variant="fade-up" delay={i * 0.12}>
-                <a
-                  href={event.link}
-                  target={event.link.startsWith("http") ? "_blank" : undefined}
-                  rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group block"
+      {events.length > 0 && (
+        <section className="bg-white pt-20 md:pt-28 lg:pt-36 pb-24 md:pb-32 lg:pb-40">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-32">
+            {/* Section Header */}
+            <ScrollReveal variant="fade-up">
+              <div className="flex items-center justify-between mb-8 md:mb-16">
+                <div className="flex items-center gap-6">
+                  <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
+                    Upcoming Events
+                  </h2>
+                </div>
+                <Link
+                  href="/events"
+                  className="text-gray-900 text-sm font-medium border-b border-gray-900 pb-1 hover:opacity-70 transition-opacity"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className={`text-xs font-medium px-3 py-1 rounded ${getTypeColor(event.type)}`}>
-                      {event.type}
-                    </span>
-                    <span className="text-sm text-gray-500">{event.date}</span>
-                  </div>
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
-                    {event.title}
-                  </h3>
-                </a>
-              </ScrollReveal>
-            ))}
+                  View All
+                </Link>
+              </div>
+            </ScrollReveal>
+
+            {/* Events Grid — staggered card reveals */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {events.slice(0, 3).map((event, i) => (
+                <ScrollReveal key={event.id} variant="fade-up" delay={i * 0.12}>
+                  <a
+                    href={event.link}
+                    target={event.link.startsWith("http") ? "_blank" : undefined}
+                    rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group block"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className={`text-xs font-medium px-3 py-1 rounded ${getTypeColor(event.type)}`}>
+                        {event.type}
+                      </span>
+                      <span className="text-sm text-gray-500">{event.date}</span>
+                    </div>
+                    <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
+                      {event.title}
+                    </h3>
+                  </a>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Footer */}
       <ScrollReveal variant="fade-in">

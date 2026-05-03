@@ -42,6 +42,13 @@ const caseCompetitionPartners: Sponsor[] = [
 
 const platinumSponsors: Sponsor[] = [
   {
+    name: "KKR",
+    logo: "/sponsors/kkr.png",
+    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
+    sector: "Private Equity",
+    website: "https://www.kkr.com",
+  },
+  {
     name: "American Securities",
     logo: "/sponsors/american-securities.png",
     description: "Leading private equity firm investing in market-leading North American companies with annual revenues generally ranging from $200 million to $2 billion.",
@@ -54,13 +61,6 @@ const platinumSponsors: Sponsor[] = [
     description: "Leading private company intelligence platform that helps dealmakers discover, research, and engage with private companies for sourcing and market mapping.",
     sector: "Technology",
     website: "https://www.grata.com",
-  },
-  {
-    name: "KKR",
-    logo: "/sponsors/kkr.png",
-    description: "Global investment company managing $504 billion across private equity, real estate, credit, and hedge funds with 23 funds and 690+ investments worldwide.",
-    sector: "Private Equity",
-    website: "https://www.kkr.com",
   },
   {
     name: "OceanSound Partners",
