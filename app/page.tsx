@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Accordion from "./components/Accordion";
-import SponsorCarousel from "./components/SponsorCarousel";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import ScrollReveal from "./components/ScrollReveal";
@@ -53,11 +52,6 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-
-        {/* Sponsor Carousel — fade up */}
-        <ScrollReveal variant="fade-up" delay={0.1} className="mt-24 md:mt-32">
-          <SponsorCarousel />
-        </ScrollReveal>
       </section>
 
       {/* Committees Section */}
