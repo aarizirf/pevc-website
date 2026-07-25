@@ -37,7 +37,7 @@ const committees: Committee[] = [
 ];
 
 export default function Accordion() {
-  const [openId, setOpenId] = useState<string | null>("co");
+  const [openId, setOpenId] = useState<string | null>(null);
 
   const togglePanel = (id: string) => {
     setOpenId(openId === id ? null : id);

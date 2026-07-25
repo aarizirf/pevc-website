@@ -1,78 +1,53 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
+import imgKK from "../assets/team/KK.jpg";
+import imgAraash from "../assets/team/Araash.jpg";
+import imgAislinn from "../assets/team/aislinn.jpeg";
+import imgRohan from "../assets/team/Rohan.jpg";
+import imgRyder from "../assets/team/ryder.jpeg";
+import imgAmy from "../assets/team/Amy.jpeg";
+import imgAarav from "../assets/team/AaravPatelPEVCHeadshot.jpg";
+import imgNathaniel from "../assets/team/nathaniel.png";
+import imgJoaquina from "../assets/team/Joaquina.jpg";
+import imgJoe from "../assets/team/Joe.jpeg";
+import imgVictoria from "../assets/team/Victoria.jpeg";
+import imgMihir from "../assets/team/mihir.jpg";
+import imgPlaceholder from "../assets/team/placeholder.svg";
+
+import type { StaticImageData } from "next/image";
 
 interface TeamMember {
   name: string;
   position: string;
   bio: string;
-  image: string;
+  image: StaticImageData;
 }
 
 const executiveBoard: TeamMember[] = [
-  {
-    name: "Muhammad Vakil",
-    position: "Co-President",
-    bio: "Senior at Wharton studying Finance and AI from Dubai. Interned at Point72 in L/S equities.",
-    image: "/team/Muhammad.jpg",
-  },
-  {
-    name: "Kah Kheng Gan",
-    position: "Co-President & VP, Investment Analysis",
-    bio: "Junior at Wharton from Singapore studying Finance and Statistics. Previously worked at D1 Capital and Farallon Capital.",
-    image: "/team/KK.jpg",
-  },
-  {
-    name: "Araash Ahuja",
-    position: "VP, Corporate Outreach",
-    bio: "Junior at Wharton from New Jersey studying Finance and Statistics. Previously interned at growth and hedge funds.",
-    image: "/team/Araash.jpg",
-  },
-  {
-    name: "Rohan Ramprasad",
-    position: "VP, Corporate Outreach",
-    bio: "Sophomore in CAS from Philadelphia suburbs majoring in Economics. Will work on KKR's Real Estate Equity team summer 2027.",
-    image: "/team/rohanR.png",
-  },
-  {
-    name: "Cyrus Horst",
-    position: "VP, Industry Projects",
-    bio: "Junior at Wharton from Washington, D.C. Completed internships at Blackstone and Odyssey Investment Partners.",
-    image: "/team/cyrus.png",
-  },
-  {
-    name: "Gabe Aguero",
-    position: "VP, Industry Projects",
-    bio: "Senior at Wharton from Connecticut studying Finance and AI. Interned at Goldman Sachs TMT team.",
-    image: "/team/gaberA.png",
-  },
-  {
-    name: "Aarav Patel",
-    position: "VP, Investment Analysis",
-    bio: "Sophomore from Connecticut studying Finance and Computer Science (M&T program). Interned at Graham Capital.",
-    image: "/team/AaravPatelPEVCHeadshot.jpg",
-  },
-  {
-    name: "Jack Annicelli",
-    position: "VP, PEVC Academy",
-    bio: "Senior in College from New York studying Economics. Recently interned at Moelis in investment banking.",
-    image: "/team/jack.jpeg",
-  },
-  {
-    name: "Drew Sonn",
-    position: "VP, PEVC Academy",
-    bio: "Junior at Wharton from Virginia concentrating in finance and operations. Previously interned at Canyon Partners.",
-    image: "/team/drew.png",
-  },
-  {
-    name: "Nathaniel Seminara",
-    position: "VP, Competitions",
-    bio: "Sophomore from London studying finance and statistics. Interned at Lazard as investment banking summer analyst.",
-    image: "/team/nathaniel.png",
-  },
+  // Presidents
+  { name: "Araash Ahuja", position: "President", bio: "Senior in Wharton from NJ studying Finance and Statistics. Interned at ICONIQ and NEA.", image: imgAraash },
+  { name: "Kah Kheng Gan", position: "President", bio: "Senior in Wharton from Singapore studying Finance and Statistics. Interned at D1 Capital and Farallon Capital.", image: imgKK },
+  // VP, Investment Analysis
+  { name: "Nathaniel Seminara", position: "VP, Investment Analysis", bio: "Junior in Wharton from London studying Finance and Statistics. Interned at CD&R and Lazard.", image: imgNathaniel },
+  { name: "Aarav Patel", position: "VP, Investment Analysis", bio: "Junior in M&T from CT studying Finance and Computer Science. Interned at D1 Capital and Graham Capital.", image: imgAarav },
+  // VP, Corporate Outreach
+  { name: "Ryder Katz", position: "VP, Corporate Outreach", bio: "Sophomore in CAS from CA studying Philosophy, Politics, and Economics. Interned at Beach Point Capital.", image: imgRyder },
+  { name: "Mihir Kelkar", position: "VP, Corporate Outreach", bio: "Sophomore in Wharton from FL studying Finance and Statistics. Interned at Avendus Capital.", image: imgMihir },
+  // VP, Industry Projects
+  { name: "Joseph Milfort", position: "VP, Industry Projects", bio: "Senior in Wharton from GA studying Finance and AI. Interned at Blackstone's Tactical Opportunities Team.", image: imgJoe },
+  { name: "Amy Zhang", position: "VP, Industry Projects", bio: "Junior in Wharton and CAS from Shanghai studying Statistics and Math Econ. Interned at Walleye Capital.", image: imgAmy },
+  // VP, PEVC Academy
+  { name: "Rohan Srivastava", position: "VP, PEVC Academy", bio: "Senior in Wharton from Sydney studying Finance and Statistics. Interned at Gumshoe Capital.", image: imgRohan},
+  { name: "Victoria Fu", position: "VP, PEVC Academy", bio: "Sophomore in Wharton from KY studying Finance and Fine Arts. Interned at an alternative investments fund.", image: imgVictoria},
+  // VP, Competitions
+  { name: "Aislinn Goh", position: "VP, Competitions", bio: "Sophomore in Wharton from Singapore studying Finance and Statistics. Interned at TVF Capital.", image: imgAislinn },
+  // VP, Social
+  { name: "Joaquina Mendive", position: "VP, Social", bio: "Senior in Huntsman from CT studying Finance, Legal Studies, and International Studies. Interned at GS and JPM.", image: imgJoaquina },
 ];
 
 interface FormerTeam {
@@ -82,44 +57,49 @@ interface FormerTeam {
 
 const formerTeams: FormerTeam[] = [
   {
+    year: "2025-2026",
+    members:
+      "Presidents: Muhammad Vakil & Kah Kheng Gan\nVP of IA: Kah Kheng Gan & Aarav Patel\nVP of CO: Araash Ahuja & Rohan Ramprasad\nVP of IP: Cyrus Horst & Gabe Aguero\nVP of Academy: Jack Annicelli & Drew Sonn\nVP of Competitions: Nathaniel Seminara",
+  },
+  {
     year: "2024-2025",
     members:
-      "Co-Presidents: Kevin Zhang & Suraj Sait\nCo-VP of IA: Otakar Korinek & Kah Kheng Gan\nCo-VP of CO: Madeleine Yeh & Muhammad Vakil\nCo-VP of IP: Adrian Melendez & Oliver Dalmi\nVP of Competitions: Mikail Jaffer\nCo-VP of Academy: Jeffrey Zhang & Rohan Srivastava\nVP of Marketing: Araash Ahuja",
+      "Presidents: Kevin Zhang & Suraj Sait\nVP of IA: Otakar Korinek & Kah Kheng Gan\nVP of CO: Madeleine Yeh & Muhammad Vakil\nVP of IP: Adrian Melendez & Oliver Dalmi\nVP of Competitions: Mikail Jaffer\nVP of Academy: Jeffrey Zhang & Rohan Srivastava\nVP of Marketing: Araash Ahuja",
   },
   {
     year: "2023-2024",
     members:
-      "Co-Presidents: Amy Zhou & Kevin Zhang\nCo-VP of IA: Kevin Zhang & Otakar Korinek\nCo-VP of CO: Zuleykha Kishiyeva & Madeleine Yeh\nCo-VP of IP: Suraj Sait, Adrian Melendez & Oliver Dalmi\nVP of Competitions: Shiv Sahai\nCo-VP of Academy: Chandler McClesky & Jeffrey Zhang\nVP of Marketing: Khwaish Lakhiani",
+      "Presidents: Amy Zhou & Kevin Zhang\nVP of IA: Kevin Zhang & Otakar Korinek\nVP of CO: Zuleykha Kishiyeva & Madeleine Yeh\nVP of IP: Suraj Sait, Adrian Melendez & Oliver Dalmi\nVP of Competitions: Shiv Sahai\nVP of Academy: Chandler McClesky & Jeffrey Zhang\nVP of Marketing: Khwaish Lakhiani",
   },
   {
     year: "2022-2023",
     members:
-      "Co-Presidents: Leontij Potupin & Ram Fedeli\nCo-VP of IA: Amy Zhou & Spencer Mateega\nCo-VP of CO: Katherine Hu & Zuleykha Kishiyeva\nCo-VP of IP: Forrest Liu, James Meng, Claire Zhong\nVP of Academy: Kiran Gadde",
+      "Presidents: Leontij Potupin & Ram Fedeli\nVP of IA: Amy Zhou & Spencer Mateega\nVP of CO: Katherine Hu & Zuleykha Kishiyeva\nVP of IP: Forrest Liu, James Meng, Claire Zhong\nVP of Academy: Kiran Gadde",
   },
   {
     year: "2021-2022",
     members:
-      "Co-Presidents: Josh Cheadle & Sami El Solh\nCo-VP of IA: Matt Current, Leontij Potupin & Annie Chen\nCo-VP of CO: Ram Fedeli & Turner Hale\nCo-VP of IP: Srineeth Challa & Claire Zhong",
+      "Presidents: Josh Cheadle & Sami El Solh\nVP of IA: Matt Current, Leontij Potupin & Annie Chen\nVP of CO: Ram Fedeli & Turner Hale\nVP of IP: Srineeth Challa & Claire Zhong",
   },
   {
     year: "2020-2021",
     members:
-      "Co-Presidents: Tim Marsh & Raymond Mason\nCo-VP of IA: Matt Current & WenTao Zhang\nVP of CO: Sudeep Jandyam",
+      "Presidents: Tim Marsh & Raymond Mason\nVP of IA: Matt Current & WenTao Zhang\nVP of CO: Sudeep Jandyam",
   },
   {
     year: "2019-2020",
     members:
-      "Co-Presidents: Andrew Ciatto & Tim Marsh\nCo-VP of IR: Alec Hsing & Raymond Mason\nCo-VP of CO: Juliana Sandford & Matthew Tucker",
+      "Presidents: Andrew Ciatto & Tim Marsh\nVP of IR: Alec Hsing & Raymond Mason\nVP of CO: Juliana Sandford & Matthew Tucker",
   },
   {
     year: "2018-2019",
     members:
-      "Co-Presidents: Sadhvi Venkatramani & Brandon Li\nCo-VP of IR: Alec Hsing & Jason Cohen\nCo-VP of CO: Michael Springer & Andrew Ciatto",
+      "Presidents: Sadhvi Venkatramani & Brandon Li\nVP of IR: Alec Hsing & Jason Cohen\nVP of CO: Michael Springer & Andrew Ciatto",
   },
   {
     year: "2017-2018",
     members:
-      "Co-Presidents: Colin Pinto & Sadhvi Venkatramani\nCo-VP of IR: Suyash Hodawadekar & Brandon Li\nCo-VP of CO: Michael Springer & Armghan Ahmad",
+      "Presidents: Colin Pinto & Sadhvi Venkatramani\nVP of IR: Suyash Hodawadekar & Brandon Li\nVP of CO: Michael Springer & Armghan Ahmad",
   },
 ];
 
@@ -144,9 +124,9 @@ export default function TeamPage() {
         </p>
       </section>
 
-      {/* Team Grid */}
+      {/* Team Grid — 2 rows of 6 */}
       <section className="px-6 md:px-12 lg:px-20 xl:px-32 pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-6 gap-y-6 md:gap-y-12">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-x-4 md:gap-x-6 gap-y-4 md:gap-y-8">
           {executiveBoard.map((member, i) => (
             <div
               key={member.name}
@@ -156,17 +136,19 @@ export default function TeamPage() {
                 animationDelay: `${0.5 + i * 0.1}s`,
               }}
             >
-              <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
-                <img
+              <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-3 relative">
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top grayscale"
+                  fill
+                  className="object-cover object-top grayscale"
+                  sizes="(max-width: 768px) 33vw, 17vw"
                 />
               </div>
-              <h3 className="text-base font-normal text-gray-900 mb-1">
+              <h3 className="text-sm font-normal text-gray-900 mb-0.5">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-500 mb-2">{member.position}</p>
+              <p className="text-xs text-gray-500 mb-1">{member.position}</p>
               <p className="text-xs text-gray-400 leading-relaxed">
                 {member.bio}
               </p>
