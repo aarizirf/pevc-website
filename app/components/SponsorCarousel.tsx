@@ -11,6 +11,7 @@ const sponsorLogos = [
   { name: "Insight Partners", logo: "/sponsors/insight-partners.png", smaller: true },
   { name: "KKR", logo: "/sponsors/kkr.png", smaller: true },
   { name: "Silver Lake", logo: "/sponsors/silver-lake.png", smaller: true },
+  { name: "TA Associates", logo: "/sponsors/ta-associates.svg", smaller: true },
   { name: "Altamont", logo: "/sponsors/altamont.jpg" },
   { name: "LLR Partners", logo: "/sponsors/llr-partners.webp" },
   { name: "General Atlantic", logo: "/sponsors/general-atlantic.jpg" },

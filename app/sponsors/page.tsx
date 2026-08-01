@@ -54,6 +54,10 @@ const platinumSponsors: Sponsor[] = [
     logo: "/sponsors/oceansound-partners.svg",
   },
   {
+    name: "TA Associates",
+    logo: "/sponsors/ta-associates.svg",
+  },
+  {
     name: "Warburg Pincus",
     logo: "/sponsors/warburg-pincus.svg.webp",
   },
