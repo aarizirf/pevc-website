@@ -42,6 +42,10 @@ const platinumSponsors: Sponsor[] = [
     logo: "/sponsors/grata.png",
   },
   {
+    name: "Insight Partners",
+    logo: "/sponsors/insight-partners.png",
+  },
+  {
     name: "KKR",
     logo: "/sponsors/kkr.png",
   },
