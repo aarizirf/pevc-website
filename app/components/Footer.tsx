@@ -21,6 +21,9 @@ export default function Footer() {
             <Link href="/sponsors" className="text-gray-300 text-sm hover:text-white transition-colors">
               Sponsors
             </Link>
+            <Link href="/placements" className="text-gray-300 text-sm hover:text-white transition-colors">
+              Placements
+            </Link>
             <Link href="/events" className="text-gray-300 text-sm hover:text-white transition-colors">
               Events
             </Link>
@@ -50,7 +53,7 @@ export default function Footer() {
         {/* Bottom Row */}
         <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2026 <span className="text-gray-400">Wharton PEVC</span> All Rights Reserved.
+            © {new Date().getFullYear()} <span className="text-gray-400">Wharton PEVC</span> All Rights Reserved.
           </p>
           <p className="text-gray-500 text-xs leading-relaxed text-center md:text-right max-w-sm md:max-w-xl">
             As a Wharton Council-recognized student organization, Wharton PEVC adheres to the{" "}

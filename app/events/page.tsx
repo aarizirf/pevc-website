@@ -4,6 +4,7 @@ import PastEventsCarousel from "../components/PastEventsCarousel";
 import HighlightedEvents from "../components/HighlightedEvents";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SectionHeader from "../components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -24,12 +25,7 @@ export default function Events() {
         <section className="bg-white py-12 md:py-16 lg:py-20">
           <div className="px-6 md:px-12 lg:px-20 xl:px-32">
             {/* Section Header */}
-            <div className="flex items-center gap-6 mb-8 md:mb-16 animate-page-intro">
-              <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-                Upcoming Events
-              </h1>
-            </div>
+            <SectionHeader title="Upcoming Events" className="mb-8 md:mb-16 animate-page-intro" />
 
             {/* Events Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-page-intro">
@@ -71,12 +67,7 @@ export default function Events() {
       <section className="bg-[#fafafa] py-12 md:py-16 lg:py-20">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32">
           <div className="animate-page-intro-delay-3">
-            <div className="flex items-center gap-6 mb-12">
-              <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-                Highlighted Events
-              </h2>
-            </div>
+            <SectionHeader as="h2" size="section" title="Highlighted Events" className="mb-12" />
             <HighlightedEvents />
           </div>
         </div>
@@ -85,12 +76,7 @@ export default function Events() {
       {/* Past Events Section */}
       <section className="bg-[#f5f5f5] py-12 md:py-16">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32 mb-8 md:mb-16">
-          <div className="flex items-center gap-6">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-              Past Events
-            </h2>
-          </div>
+          <SectionHeader as="h2" size="section" title="Past Events" />
         </div>
         <PastEventsCarousel />
       </section>
