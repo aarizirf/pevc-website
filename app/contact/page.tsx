@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, FormEvent } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SectionHeader from "../components/SectionHeader";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,12 +57,7 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <section className="flex-1 bg-white py-16 md:py-24">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32 max-w-4xl mx-auto">
-          <div className="flex items-center gap-6 mb-8">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-              Contact Us
-            </h1>
-          </div>
+          <SectionHeader title="Contact Us" className="mb-8" />
 
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-12">
             Have a question or want to get in touch? Fill out the form below and we&apos;ll get back to you as soon as possible.

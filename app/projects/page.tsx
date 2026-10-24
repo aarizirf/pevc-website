@@ -3,6 +3,7 @@ import Link from "next/link";
 import ClientReviewsCarousel from "@/app/components/ClientReviewsCarousel";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SectionHeader from "../components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -18,13 +19,11 @@ export default function ProjectsPage() {
       {/* Hero */}
       <section className="bg-white pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32">
-          <div className="flex items-center gap-6 mb-6">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <span className="text-sm text-gray-500 uppercase tracking-wider">Industry Projects</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 max-w-5xl">
-            Valuation Services + Growth Acceleration
-          </h1>
+          <SectionHeader
+            eyebrow="Industry Projects"
+            title="Valuation Services + Growth Acceleration"
+            headingClassName="mb-8 max-w-5xl"
+          />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <p className="text-gray-600 text-lg leading-relaxed">
               PEVC is now offering valuation services for local businesses, no matter the size or financial profile across the United States. Our growth acceleration team formulates strategic advice to help your firm take advantage of macro trends and help you grow your most promising products.

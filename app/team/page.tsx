@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SectionHeader from "../components/SectionHeader";
 
 import imgKK from "../assets/team/KK.jpg";
 import imgAraash from "../assets/team/Araash.jpg";
@@ -113,12 +114,12 @@ export default function TeamPage() {
 
       {/* Header Section */}
       <section className="px-6 md:px-12 lg:px-20 xl:px-32 pt-16 md:pt-24 pb-12">
-        <div className="flex items-center gap-6 mb-8">
-          <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0 animate-page-intro" />
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight animate-page-intro-delay-1">
-            Our Team
-          </h1>
-        </div>
+        <SectionHeader
+          title="Our Team"
+          className="mb-8"
+          lineClassName="animate-page-intro"
+          headingClassName="tracking-tight animate-page-intro-delay-1"
+        />
         <p className="text-gray-500 text-lg md:text-xl font-light animate-page-intro-delay-2">
           Current Executive Board
         </p>

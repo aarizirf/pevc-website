@@ -4,6 +4,8 @@ import Accordion from "./components/Accordion";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import ScrollReveal from "./components/ScrollReveal";
+import SectionHeader from "./components/SectionHeader";
+import SponsorCarousel from "./components/SponsorCarousel";
 import TextReveal from "./components/TextReveal";
 import WhatWeDoSection from "./components/WhatWeDoSection";
 import { events, getTypeColor } from "./data/events";
@@ -47,11 +49,19 @@ export default function Home() {
                 Who We Are
               </h3>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                PEVC is a thriving organization of bright and passionate individuals. Our mission is to cultivate connections between private market firms and Penn&apos;s students that will ultimately lead to a more professionally prepared and passionate educational community. As a PEVC member, you will acquire and hone vital financial skills, meet and interact with professionals from the industry&apos;s best firms, and work and play in a team with the most driven and interesting students Penn has to offer. We are proud to have led Wharton Council&apos;s &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Best GBM Program</span>&rdquo; (2023), organized the &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Best Event</span>&rdquo; (2023), and had the &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Most Outstanding Board Member</span>&rdquo; for 2 years straight (2024, 2025).
+                PEVC is a thriving organization of bright and passionate individuals. Our mission is to cultivate connections between private market firms and Penn&apos;s students that will ultimately lead to a more professionally prepared and passionate educational community. We intentionally cap our membership at 50 students across all four class years, keeping the club small and selective so every member gets real mentorship and hands-on access to the industry. As a PEVC member, you will acquire and hone vital financial skills, meet and interact with professionals from the industry&apos;s best firms, and work and play in a team with the most driven and interesting students Penn has to offer. We are proud to have led Wharton Council&apos;s &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Best GBM Program</span>&rdquo; (2023), organized the &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Best Event</span>&rdquo; (2023), and had the &ldquo;<span className="underline underline-offset-2 decoration-blue-900">Most Outstanding Board Member</span>&rdquo; for 2 years straight (2024, 2025).
               </p>
             </ScrollReveal>
           </div>
         </div>
+      </section>
+
+      {/* Trusted By — sponsor logo strip */}
+      <section className="bg-white pb-24 md:pb-32 lg:pb-40">
+        <div className="px-6 md:px-12 lg:px-20 xl:px-32 mb-10">
+          <span className="text-sm text-gray-500 uppercase tracking-wider">Trusted By</span>
+        </div>
+        <SponsorCarousel />
       </section>
 
       {/* Committees Section */}
@@ -66,12 +76,7 @@ export default function Home() {
             {/* Section Header */}
             <ScrollReveal variant="fade-up">
               <div className="flex items-center justify-between mb-8 md:mb-16">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900">
-                    Upcoming Events
-                  </h2>
-                </div>
+                <SectionHeader as="h2" size="section" title="Upcoming Events" />
                 <Link
                   href="/events"
                   className="text-gray-900 text-sm font-medium border-b border-gray-900 pb-1 hover:opacity-70 transition-opacity"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SectionHeader from "../components/SectionHeader";
 
 export default function JoinUsPage() {
   const [showListservForm, setShowListservForm] = useState(false);
@@ -15,13 +16,7 @@ export default function JoinUsPage() {
       {/* Hero Section */}
       <section className="bg-white pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32">
-          <div className="flex items-center gap-6 mb-6">
-            <div className="w-16 border-t-2 border-dashed border-gray-400 shrink-0" />
-            <span className="text-sm text-gray-500 uppercase tracking-wider">Get Involved</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-            Join Us
-          </h1>
+          <SectionHeader eyebrow="Get Involved" title="Join Us" headingClassName="mb-6" />
           <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
             Become part of the premier private equity and venture capital community at Wharton.
             Explore our committees, join our listserv, and connect with industry professionals.
@@ -35,7 +30,7 @@ export default function JoinUsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {/* Committee Applications */}
             <div>
-              <h2 className="text-xl md:text-2xl font-light text-gray-900 mb-6" style={{ fontFamily: "inherit" }}>
+              <h2 className="text-xl md:text-2xl font-light text-gray-900 mb-6">
                 Committee Applications
               </h2>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -46,7 +41,7 @@ export default function JoinUsPage() {
 
             {/* Listserv */}
             <div>
-            <h2 className="text-xl md:text-2xl font-light text-gray-900 mb-6" style={{ fontFamily: "inherit" }}>
+            <h2 className="text-xl md:text-2xl font-light text-gray-900 mb-6">
               Join Our Listserv
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
